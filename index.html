@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>手勢數學挑戰</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="stage quiz-stage" aria-label="MediaPipe 手勢數學挑戰">
+      <div class="sticker sticker-mushroom" aria-hidden="true"></div>
+      <div class="sticker sticker-star" aria-hidden="true"></div>
+      <div class="sticker sticker-spiral" aria-hidden="true"></div>
+      <div class="marquee quiz-marquee" aria-hidden="true">
+        <span>數學</span>
+        <b>+</b>
+        <span>手勢</span>
+      </div>
+
+      <section class="quiz-board" aria-live="polite">
+        <div class="quiz-meta">
+          <span id="questionIndex">1 / 30</span>
+          <span id="score">得分 0</span>
+          <span id="timer">本題 12.0 秒</span>
+          <span id="totalTime">總時間 0.0 秒</span>
+        </div>
+        <div id="questionText" class="quiz-question">載入中...</div>
+        <div id="feedback" class="quiz-feedback">用手指比出答案，並保持不動。</div>
+      </section>
+
+      <section class="camera-shell quiz-camera">
+        <video id="camera" class="camera" playsinline muted></video>
+        <canvas id="overlay" class="overlay"></canvas>
+        <div id="status" class="status">正在啟動攝影機...</div>
+      </section>
+
+      <section id="endPanel" class="quiz-end-panel hidden" aria-live="polite">
+        <div class="quiz-end-title">任務完成！</div>
+        <div id="endStats" class="quiz-end-stats">得分 0 / 30</div>
+        <button id="retryButton" class="quiz-retry-button" type="button">再玩一次</button>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="./math_quiz.js"></script>
+  </body>
+</html>
